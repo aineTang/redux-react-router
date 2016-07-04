@@ -2,21 +2,15 @@ import React,{ Component } from "react"
 import $ from "jquery"
 
 class FormEditor extends Component{
-    addItem(){
-        
-    }
     removeItem(event){
         let index = $(event.currentTarget).data("item-index");
         this.props.removeItem(index);
-    }
-    popupDialog(){
-        
     }
     render() {
         return (
             <div>
                 {
-                    this.props.items.map((item,index) =>{
+                    e=>this.items.map((item,index) =>{
                         return (
                             <div>
                                 {

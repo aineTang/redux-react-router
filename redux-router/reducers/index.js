@@ -1,13 +1,12 @@
 import { combineReducers } from 'redux'
 import actionType from "../actions/action-defination.js"
 import _ from "lodash"
-
+import { routerReducer as routing } from "react-router-redux"
 const initFormState = {
     status:"edit"
 };
 const initItemState = {
-    items:[
-    ]
+    items:[]
 };
 const initDialogState = {
     isShowDialog:false
@@ -61,7 +60,8 @@ function dialogReducer(state=initDialogState,action){
 let reducers = combineReducers({
     formState:formReducer,
     itemState:itemReducer,
-    dialogState:dialogReducer
+    dialogState:dialogReducer,
+    routing
 });
 
 export default reducers
