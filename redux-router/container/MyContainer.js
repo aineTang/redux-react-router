@@ -28,10 +28,9 @@ class MyContainer extends Component{
             {self.props.children}
             <div>
                 {(() =>{
-                    if (self.props.status === "edit") {
-                        return <button onClick={self.popupDialog.bind(this)}>+</button>
+                    if (self.props.status === "preview") {
+                        return <button>提交</button>
                     }
-                    return <button>提交</button>
                 })()}
             </div>
         </div>);

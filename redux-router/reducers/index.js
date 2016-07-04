@@ -3,7 +3,7 @@ import actionType from "../actions/action-defination.js"
 import _ from "lodash"
 import { routerReducer as routing } from "react-router-redux"
 const initFormState = {
-    status:"edit"
+    status:"edit"   
 };
 const initItemState = {
     items:[

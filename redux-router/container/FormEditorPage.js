@@ -7,7 +7,7 @@ class FormEditorPage extends Component{
     }
     render() {
         return (
-            <FormEditor items={this.props.items} />
+            <FormEditor addItem={this.addItem} items={this.props.items} />
         )
     }
 }
