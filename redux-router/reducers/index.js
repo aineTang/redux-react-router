@@ -6,10 +6,17 @@ const initFormState = {
     status:"edit"
 };
 const initItemState = {
-    items:[]
-};
-const initDialogState = {
-    isShowDialog:false
+    items:[
+        {
+            type:"text"
+        },
+        {
+            type:"date"
+        },
+        {
+            type:"text"
+        }
+    ]
 };
 
 function formReducer(state=initFormState,action){
@@ -46,21 +53,9 @@ function itemReducer(state=initItemState,action){
     }
 }
 
-function dialogReducer(state=initDialogState,action){
-    switch (action.type) {
-        case actionType.OPERATE_DIALOG:
-            return Object.assign({}, state, {
-                isShowDialog:action.isShowDialog
-            });
-        default:
-            return state
-    }
-}
-
 let reducers = combineReducers({
     formState:formReducer,
     itemState:itemReducer,
-    dialogState:dialogReducer,
     routing
 });
 

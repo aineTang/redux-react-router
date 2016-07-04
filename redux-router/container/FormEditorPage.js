@@ -1,12 +1,13 @@
-import React,{Component,PropTypes} from "react"
+import React, { Component, PropTypes } from 'react'
 import {connect} from "react-redux"
 import FormEditor from "../components/FormEditor.js"
 class FormEditorPage extends Component{
+    constructor(props){
+        super(props);
+    }
     render() {
-        var self = this;
-        console.log(self.props.items);
         return (
-            <FormEditor items={e=>this.items}></FormEditor>
+            <FormEditor items={this.props.items} />
         )
     }
 }
@@ -18,5 +19,5 @@ function mapStateToProps(state,ownProps){
         items:state.itemState.items
     }
 }
-connect(mapStateToProps,{})(FormEditorPage);
-export default FormEditorPage
+
+export default connect(mapStateToProps,{})(FormEditorPage)

@@ -6,11 +6,9 @@ class FormPreviewPage extends Component{
         super(props);
     }
     render(){
-        var self = this;
-        console.log(self.props.items);
         return (
             <div>
-                <FormPreview items={self.props.items}></FormPreview>
+                <FormPreview items={this.props.items} />
             </div>
         );
     }
@@ -23,6 +21,5 @@ function mapStateToProps(state,ownProps){
         items:state.itemState.items
     }
 }
-connect(mapStateToProps,{
-})(FormPreviewPage);
-export default FormPreviewPage
+export default connect(mapStateToProps,{
+})(FormPreviewPage)

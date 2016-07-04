@@ -1,25 +1,35 @@
 import React,{Component,PropTypes} from "react"
 import {connect} from "react-redux"
+import * as formHandler from "../handle/form.js"
 class MyContainer extends Component{
     constructor(props){
         super(props)
     }
+    renderEditor(){
+        formHandler.handleEditor();
+        this.context.router.push("/edit");
+    }
+    renderPreview(){
+        formHandler.handlePreview();
+        this.context.router.push("/preview")
+    }
+    popupDialog(){
+    }
     render(){
-        console.log(this.props);
         var self = this;
         return (<div>
             {(() => {
-                if (e=>this.status === "edit") {
-                    return <button>预览</button>
+                if (this.props.status === "edit") {
+                    return <button onClick={self.renderPreview.bind(this)}>预览</button>
                 }
-                return <button>编辑</button>
+                return <button onClick={self.renderEditor.bind(this)}>编辑</button>
             })()}
 
             {self.props.children}
             <div>
                 {(() =>{
-                    if (e=>this.status === "edit") {
-                        return <button>+</button>
+                    if (self.props.status === "edit") {
+                        return <button onClick={self.popupDialog.bind(this)}>+</button>
                     }
                     return <button>提交</button>
                 })()}
@@ -31,8 +41,8 @@ MyContainer.propTypes = {
     status: PropTypes.string.isRequired
 };
 
-MyContainer.contextType = {
-    router:PropTypes.object
+MyContainer.contextTypes = {
+    router:React.PropTypes.object
 };
 
 function mapStateToProps(state,ownProps){
@@ -40,6 +50,5 @@ function mapStateToProps(state,ownProps){
         status:state.formState.status
     }
 }
-connect(mapStateToProps,{})(MyContainer);
 
-export default MyContainer
+export default connect(mapStateToProps,{})(MyContainer);

@@ -10,7 +10,7 @@ class FormEditor extends Component{
         return (
             <div>
                 {
-                    e=>this.items.map((item,index) =>{
+                   this.props.items.map((item,index) =>{
                         return (
                             <div>
                                 {

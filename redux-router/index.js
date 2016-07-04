@@ -11,14 +11,15 @@ import store from "./store.js"
 
 var history = syncHistoryWithStore(browserHistory,store);
 let rootElement = document.getElementById("root");
-
+console.log("打印当前state：");
+console.log(store.getState());
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={MyContainer}>
-                <IndexRoute component={FormEditorPage}></IndexRoute>
-                <Route path="/editor" component={FormEditorPage}></Route>
-                <Route path="/preview" component={FormPreviewPage}></Route>
+                <IndexRoute component={FormPreviewPage} />
+                <Route path="/edit" component={FormEditorPage} />
+                <Route path="/preview" component={FormPreviewPage} />
             </Route>
         </Router>
     </Provider>
