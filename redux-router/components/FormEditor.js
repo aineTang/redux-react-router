@@ -1,15 +1,10 @@
 import React,{ Component } from "react"
-import $ from "jquery"
 import DialogButton from "./DialogButton.js"
-import * as ItemHandler from "../handle/item.js"
-
+import $ from "jquery"
 class FormEditor extends Component{
     removeItem(event){
         let index = $(event.currentTarget).data("item-index");
         this.props.removeItem(index);
-    }
-    addItem(item){
-        ItemHandler.handleAddItem(item);
     }
     render() {
         return (
@@ -33,7 +28,7 @@ class FormEditor extends Component{
                         )
                     })
                 }
-                <DialogButton addItem={this.addItem} />
+                <DialogButton addItem={this.props.addItem} />
             </div>
         );
     }
