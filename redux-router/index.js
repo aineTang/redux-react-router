@@ -17,7 +17,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={MyContainer}>
-                <IndexRoute component={FormPreviewPage} />
+                <IndexRoute component={FormEditorPage} />
                 <Route path="/edit" component={FormEditorPage} />
                 <Route path="/preview" component={FormPreviewPage} />
             </Route>
